@@ -1,0 +1,11 @@
+.elevated {
+  box-shadow: var(--main-shadow);
+  background-color: var(--color-base);
+  padding: var(--padding-standard);
+  font-family: var(--font-family);
+  display: inline-block;
+}
+
+.rounded {
+  border-radius: var(--border-md);
+}

@@ -1,9 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
-
-export interface RwElevatedButtonEvent {
-  sender: RwElevatedButton;
-  event: MouseEvent;
-}
+import { Component, Event, EventEmitter, h, Listen, Prop } from '@stencil/core';
 
 @Component({
   tag: 'rw-elevated-button',
@@ -15,8 +10,12 @@ export class RwElevatedButton {
   @Prop() text: string;
   @Prop() custom: boolean;
 
-  // @Listen('click')
-  // onHandleClickEvent(ev) {}
+  @Event() buttonclick: EventEmitter<any>;
+
+  @Listen('click')
+  onHandleClickEvent(ev) {
+    this.buttonclick.emit({ sender: this, event: ev });
+  }
 
   render() {
     let styleClasses = {

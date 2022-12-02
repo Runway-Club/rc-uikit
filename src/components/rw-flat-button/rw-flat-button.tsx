@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, Listen } from '@stencil/core';
 
 @Component({
   tag: 'rw-flat-button',
@@ -10,8 +10,12 @@ export class RwFlatButton {
   @Prop() text: string;
   @Prop() custom: boolean;
 
-  // @Listen('click')
-  // onHandleClickEvent(ev) {}
+  @Event() buttonclick: EventEmitter<any>;
+
+  @Listen('click')
+  onHandleClickEvent(ev) {
+    this.buttonclick.emit({ sender: this, event: ev });
+  }
 
   render() {
     let styleClasses = {
