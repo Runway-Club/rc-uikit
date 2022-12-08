@@ -14,6 +14,13 @@
 | `type`   | `type`    |             | `string`  | `undefined` |
 
 
+## Events
+
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `buttonclick` |             | `CustomEvent<any>` |
+
+
 ## Shadow Parts
 
 | Part     | Description |
