@@ -26,7 +26,7 @@ export class RwContainer {
       rounded: this.rounded,
     };
     return (
-      <div class={styleClasses} style={{ width: this.width, heigth: this.height }}>
+      <div class={styleClasses} style={{ width: this.width, height: this.height }}> 
         <slot></slot>
       </div>
     );

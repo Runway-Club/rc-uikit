@@ -1,0 +1,17 @@
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <script type="module" src="/build/rw-uikit.esm.js" data-stencil></script> <script nomodule="" src="/build/rw-uikit.js" data-stencil></script> <link href="/build/rw-uikit.css" rel="stylesheet"> </head> <body> <rw-container> <rw-padding> <rw-row> <rw-col> <h1>Stencil Component Starter</h1> <p style="width: 250px;"> Start building amazing things with Stencil! Check out the README for everything that comes in this starter
+            out
+            of the box and check out our docs on <a href="https://stenciljs.com">stenciljs.com</a> to get started. </p> </rw-col> </rw-row> <rw-row rtl="true"> <rw-outlined-button type="primary" custom="true"> Agree and Continue </rw-outlined-button> </rw-row> <rw-row rtl="true"> <rw-tab type="danger" custom="true">Base Text White</rw-tab> </rw-row> </rw-padding> </rw-container> <script>
+    const button = document.getElementById("bt01");
+    button.addEventListener("buttonclick", (e) => {
+      console.log("button clicked");
+    });
+  </script> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}
+</script></body></html>
