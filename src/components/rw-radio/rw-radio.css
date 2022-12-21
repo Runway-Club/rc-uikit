@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  width: auto;
+}
+
+.radio {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.3rem;
+}
+
+.checked {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.text {
+  font-weight: 500;
+}
