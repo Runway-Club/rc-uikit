@@ -40,13 +40,10 @@ export class RwRadio {
     let styleChecked = {
       checked: true,
     }
-    let styleText = {
-      text: true,
-    }
     return (
       <div class={styleContainer}>
         {this.checked ? <div class={styleRadio}><div class={styleChecked}></div></div> : <div class={styleRadio}></div>}
-        <div class={styleText}>{this.text}</div>
+        <div>{this.text}</div>
       </div>
     );
   }

@@ -3,6 +3,9 @@
   align-items: center;
   margin: 0.5rem 0;
   width: auto;
+  font-size: var(--base-text-size);
+  font-family: var(--font-family);
+  font-weight: 500;
 }
 
 .radio {
@@ -22,8 +25,4 @@
   height: 11px;
   border-radius: 50%;
   background: var(--color-primary);
-}
-
-.text {
-  font-weight: 500;
 }
