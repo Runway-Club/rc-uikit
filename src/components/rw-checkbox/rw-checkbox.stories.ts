@@ -1,5 +1,5 @@
 export default {
-  title: 'Rw Radio Button',
+  title: 'Rw Checkbox Button',
   argTypes: {
     custom: {
       control: { type: 'boolean' },
@@ -8,7 +8,7 @@ export default {
     },
     text: {
       control: { type: 'text' },
-      default: 'Radio button',
+      default: 'Checkbox button',
       description: 'The text of the button',
     },
     content: {
@@ -19,13 +19,12 @@ export default {
   },
 };
 
-const Template = args => `<rw-radio text="${args.text}" custom="${args.custom}" >${args.content}</rw-radio>
-<rw-radio text="${args.text}" custom="${args.custom}" >${args.content}</rw-radio>
-<rw-radio text="${args.text}" custom="${args.custom}" >${args.content}</rw-radio>`;
+const Template = args => `<rw-checkbox text="${args.text}" custom="${args.custom}" >${args.content}</rw-checkbox>
+<rw-checkbox text="${args.text}" custom="${args.custom}" >${args.content}</rw-checkbox>`;
 
-export const RadioButton = Template.bind({});
-RadioButton.args = {
+export const CheckboxButton = Template.bind({});
+CheckboxButton.args = {
   custom: false,
-  text: 'Radio button',
+  text: 'Checkbox button',
   content: '',
 };

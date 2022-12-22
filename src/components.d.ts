@@ -9,6 +9,11 @@ export namespace Components {
     interface RwCenter {
         "type": string;
     }
+    interface RwCheckbox {
+        "custom": boolean;
+        "groupname": string;
+        "text": string;
+    }
     interface RwCol {
     }
     interface RwContainer {
@@ -47,6 +52,10 @@ export namespace Components {
         "stretch": boolean;
     }
 }
+export interface RwCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRwCheckboxElement;
+}
 export interface RwElevatedButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRwElevatedButtonElement;
@@ -69,6 +78,12 @@ declare global {
     var HTMLRwCenterElement: {
         prototype: HTMLRwCenterElement;
         new (): HTMLRwCenterElement;
+    };
+    interface HTMLRwCheckboxElement extends Components.RwCheckbox, HTMLStencilElement {
+    }
+    var HTMLRwCheckboxElement: {
+        prototype: HTMLRwCheckboxElement;
+        new (): HTMLRwCheckboxElement;
     };
     interface HTMLRwColElement extends Components.RwCol, HTMLStencilElement {
     }
@@ -120,6 +135,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "rw-center": HTMLRwCenterElement;
+        "rw-checkbox": HTMLRwCheckboxElement;
         "rw-col": HTMLRwColElement;
         "rw-container": HTMLRwContainerElement;
         "rw-elevated-button": HTMLRwElevatedButtonElement;
@@ -133,6 +149,12 @@ declare global {
 declare namespace LocalJSX {
     interface RwCenter {
         "type"?: string;
+    }
+    interface RwCheckbox {
+        "custom"?: boolean;
+        "groupname"?: string;
+        "onButtonclick"?: (event: RwCheckboxCustomEvent<any>) => void;
+        "text"?: string;
     }
     interface RwCol {
     }
@@ -177,6 +199,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "rw-center": RwCenter;
+        "rw-checkbox": RwCheckbox;
         "rw-col": RwCol;
         "rw-container": RwContainer;
         "rw-elevated-button": RwElevatedButton;
@@ -192,6 +215,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "rw-center": LocalJSX.RwCenter & JSXBase.HTMLAttributes<HTMLRwCenterElement>;
+            "rw-checkbox": LocalJSX.RwCheckbox & JSXBase.HTMLAttributes<HTMLRwCheckboxElement>;
             "rw-col": LocalJSX.RwCol & JSXBase.HTMLAttributes<HTMLRwColElement>;
             "rw-container": LocalJSX.RwContainer & JSXBase.HTMLAttributes<HTMLRwContainerElement>;
             "rw-elevated-button": LocalJSX.RwElevatedButton & JSXBase.HTMLAttributes<HTMLRwElevatedButtonElement>;
