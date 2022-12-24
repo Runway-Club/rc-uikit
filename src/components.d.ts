@@ -9,6 +9,11 @@ export namespace Components {
     interface RwCenter {
         "type": string;
     }
+    interface RwCheckbox {
+        "custom": boolean;
+        "groupname": string;
+        "text": string;
+    }
     interface RwCol {
     }
     interface RwContainer {
@@ -36,11 +41,20 @@ export namespace Components {
     interface RwPadding {
         "padding": string;
     }
+    interface RwRadio {
+        "custom": boolean;
+        "groupname": string;
+        "text": string;
+    }
     interface RwRow {
         "centered": boolean;
         "rtl": boolean;
         "stretch": boolean;
     }
+}
+export interface RwCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRwCheckboxElement;
 }
 export interface RwElevatedButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -54,12 +68,22 @@ export interface RwOutlinedButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRwOutlinedButtonElement;
 }
+export interface RwRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRwRadioElement;
+}
 declare global {
     interface HTMLRwCenterElement extends Components.RwCenter, HTMLStencilElement {
     }
     var HTMLRwCenterElement: {
         prototype: HTMLRwCenterElement;
         new (): HTMLRwCenterElement;
+    };
+    interface HTMLRwCheckboxElement extends Components.RwCheckbox, HTMLStencilElement {
+    }
+    var HTMLRwCheckboxElement: {
+        prototype: HTMLRwCheckboxElement;
+        new (): HTMLRwCheckboxElement;
     };
     interface HTMLRwColElement extends Components.RwCol, HTMLStencilElement {
     }
@@ -97,6 +121,12 @@ declare global {
         prototype: HTMLRwPaddingElement;
         new (): HTMLRwPaddingElement;
     };
+    interface HTMLRwRadioElement extends Components.RwRadio, HTMLStencilElement {
+    }
+    var HTMLRwRadioElement: {
+        prototype: HTMLRwRadioElement;
+        new (): HTMLRwRadioElement;
+    };
     interface HTMLRwRowElement extends Components.RwRow, HTMLStencilElement {
     }
     var HTMLRwRowElement: {
@@ -105,18 +135,26 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "rw-center": HTMLRwCenterElement;
+        "rw-checkbox": HTMLRwCheckboxElement;
         "rw-col": HTMLRwColElement;
         "rw-container": HTMLRwContainerElement;
         "rw-elevated-button": HTMLRwElevatedButtonElement;
         "rw-flat-button": HTMLRwFlatButtonElement;
         "rw-outlined-button": HTMLRwOutlinedButtonElement;
         "rw-padding": HTMLRwPaddingElement;
+        "rw-radio": HTMLRwRadioElement;
         "rw-row": HTMLRwRowElement;
     }
 }
 declare namespace LocalJSX {
     interface RwCenter {
         "type"?: string;
+    }
+    interface RwCheckbox {
+        "custom"?: boolean;
+        "groupname"?: string;
+        "onButtonclick"?: (event: RwCheckboxCustomEvent<any>) => void;
+        "text"?: string;
     }
     interface RwCol {
     }
@@ -148,6 +186,12 @@ declare namespace LocalJSX {
     interface RwPadding {
         "padding"?: string;
     }
+    interface RwRadio {
+        "custom"?: boolean;
+        "groupname"?: string;
+        "onButtonclick"?: (event: RwRadioCustomEvent<any>) => void;
+        "text"?: string;
+    }
     interface RwRow {
         "centered"?: boolean;
         "rtl"?: boolean;
@@ -155,12 +199,14 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "rw-center": RwCenter;
+        "rw-checkbox": RwCheckbox;
         "rw-col": RwCol;
         "rw-container": RwContainer;
         "rw-elevated-button": RwElevatedButton;
         "rw-flat-button": RwFlatButton;
         "rw-outlined-button": RwOutlinedButton;
         "rw-padding": RwPadding;
+        "rw-radio": RwRadio;
         "rw-row": RwRow;
     }
 }
@@ -169,12 +215,14 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "rw-center": LocalJSX.RwCenter & JSXBase.HTMLAttributes<HTMLRwCenterElement>;
+            "rw-checkbox": LocalJSX.RwCheckbox & JSXBase.HTMLAttributes<HTMLRwCheckboxElement>;
             "rw-col": LocalJSX.RwCol & JSXBase.HTMLAttributes<HTMLRwColElement>;
             "rw-container": LocalJSX.RwContainer & JSXBase.HTMLAttributes<HTMLRwContainerElement>;
             "rw-elevated-button": LocalJSX.RwElevatedButton & JSXBase.HTMLAttributes<HTMLRwElevatedButtonElement>;
             "rw-flat-button": LocalJSX.RwFlatButton & JSXBase.HTMLAttributes<HTMLRwFlatButtonElement>;
             "rw-outlined-button": LocalJSX.RwOutlinedButton & JSXBase.HTMLAttributes<HTMLRwOutlinedButtonElement>;
             "rw-padding": LocalJSX.RwPadding & JSXBase.HTMLAttributes<HTMLRwPaddingElement>;
+            "rw-radio": LocalJSX.RwRadio & JSXBase.HTMLAttributes<HTMLRwRadioElement>;
             "rw-row": LocalJSX.RwRow & JSXBase.HTMLAttributes<HTMLRwRowElement>;
         }
     }
